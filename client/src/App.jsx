@@ -1,12 +1,12 @@
 import { useEffect, useMemo, useState } from "react";
 import {
   Alert, Box, Button, Card, CardContent, CircularProgress, Container, FormControl,
-  InputLabel, MenuItem, Paper, Select, Stack, TextField, Typography
+  FormControlLabel, InputLabel, MenuItem, Paper, Select, Stack, Switch, TextField, Typography
 } from "@mui/material";
 
 const formatNumber = (number) => new Intl.NumberFormat("fr-CA", { maximumFractionDigits: 8 }).format(number);
 
-export default function App() {
+export default function App({ mode, onToggleTheme }) {
   const [categories, setCategories] = useState([]);
   const [categoryId, setCategoryId] = useState("length");
   const [from, setFrom] = useState("foot");
@@ -52,9 +52,13 @@ export default function App() {
 
   return <Box minHeight="100vh" py={{ xs: 4, sm: 8 }}>
     <Container maxWidth="sm">
-      <Stack spacing={3} alignItems="center" textAlign="center" mb={4}>
+      <Stack spacing={2} alignItems="center" textAlign="center" mb={4}>
         <Box sx={{ color: "primary.main", bgcolor: "primary.50", p: 1.5, borderRadius: "50%", lineHeight: 1, fontSize: 30 }}>↔</Box>
         <Box><Typography variant="h3" component="h1">Convertisseur d’unités</Typography><Typography color="text.secondary" mt={1}>Des conversions simples, précises et instantanées.</Typography></Box>
+        <FormControlLabel
+          control={<Switch checked={mode === "dark"} onChange={onToggleTheme} color="primary" />}
+          label="Mode sombre"
+        />
       </Stack>
       <Card elevation={4}>
         <CardContent sx={{ p: { xs: 3, sm: 4 } }}>
