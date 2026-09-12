@@ -3,6 +3,7 @@ const categories = {
     label: "Longueur",
     units: {
       meter: { label: "Mètres", symbol: "m", factor: 1 },
+      centimeter: { label: "Centimètres", symbol: "cm", factor: 0.01 },
       kilometer: { label: "Kilomètres", symbol: "km", factor: 1000 },
       foot: { label: "Pieds", symbol: "ft", factor: 0.3048 },
       inch: { label: "Pouces", symbol: "in", factor: 0.0254 },
