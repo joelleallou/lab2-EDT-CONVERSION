@@ -30,6 +30,7 @@ export default function App({ mode, onToggleTheme }) {
   async function handleConvert(event) {
     event.preventDefault();
     setError("");
+    if (value.trim() === "") return setError("Veuillez saisir une valeur à convertir.");
     const numericValue = Number(value.replace(",", "."));
     if (!Number.isFinite(numericValue)) return setError("Saisissez une valeur numérique valide.");
     try {
